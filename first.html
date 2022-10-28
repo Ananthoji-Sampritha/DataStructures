@@ -1,0 +1,59 @@
+<?php
+    $uname=$_POST['username'];
+    $pass=$_POST['password'];
+    $error="";
+    $success="";
+    if(isset($_POST['submit'])){
+        if($uname=="admin"){
+            if($pass=="password"){
+                $error="";
+                $success="Welcome";
+            }
+            else{
+                $error="Invalid password";
+                $success="";
+            }
+        }
+        else{
+            $error="Invalid username";
+            $success="";
+        }
+    }
+?> 
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My first project</title>
+        
+    </head>
+    <body>
+    
+        <link rel="stylesheet" href="sty.css">
+        
+        <div class="center">
+            <h1>Login</h1>
+            <p class="error"><?php echo $error; ?></p><p class="success"><?php echo $success; ?></p>
+            <form method="post"> 
+                <div class="txt_field">
+                    <input type="text" name="username" id="username" required>
+                    <span></span>
+                    <label>Username</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" name="password" id="password" required>
+                    <span></span>
+                    <label>Password</label>
+
+                </div>
+                <div class="pass">Forgot Password?</div>
+                <input type="submit" name="submit" value="Login">
+                <div class="signup">
+                    New member? <a href="#">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </body>
+    
+</html>
